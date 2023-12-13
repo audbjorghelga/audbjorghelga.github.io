@@ -1,0 +1,855 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Be+Vietnam+Pro:wght@200&family=Bitter:ital,wght@1,300&family=Dongle:wght@300;400&family=Dosis&family=IBM+Plex+Sans:wght@300&family=Indie+Flower&family=Montserrat:wght@200&family=Playfair+Display&family=Poppins:ital,wght@1,300&family=Quicksand:wght@300&family=Roboto+Condensed:wght@300&family=Roboto+Mono&family=Roboto+Slab:wght@200&family=Roboto:wght@300;400&display=swap');
+
+/*Táknletur*/
+@font-face {
+    font-family: 'icomoon';
+    src:  url('icomoon/fonts/icomoon.eot?1jbsjd');
+    src:  url('icomoon/fonts/icomoon.eot?1jbsjd#iefix') format('embedded-opentype'),
+      url('icomoon/fonts/icomoon.ttf?1jbsjd') format('truetype'),
+      url('icomoon/fonts/icomoon.woff?1jbsjd') format('woff'),
+      url('icomoon/fonts/icomoon.svg?1jbsjd#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-home3:before {
+    content: "\e902";
+  }
+  .icon-instagram:before {
+    content: "\ea92";
+    font-size: 30px
+  }  
+
+
+/*Splash Screen*/
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+  }
+
+.content-wrapper {
+    display: flex;
+    width: 80vw;
+    min-height: 80vh;
+    position: relative;
+}
+  
+#toggle1, #toggle2, #toggle3 {
+    display: none;
+}
+  
+#section-1, #section-2 {
+    display: flex;
+    width: 80vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+  
+#section-1 {
+    opacity: 1;
+    z-index: 5;
+    transition: transform 0.5s, opacity 0.5s;
+}
+  
+#section-2 {
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+  
+.image-container {
+    /*width: 50%;*/
+    min-width: 230px;
+    height: 100%;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+  
+.image-container img, #camera-lens-container img {
+    flex-shrink: 0;
+      min-width: 100%;
+      min-height: 100%;
+}
+  
+.info-container {
+    /*width: 50%;*/
+    height: 100%;
+    background-color: #f7f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+#section-2 .image-container {
+    opacity: 0;
+    transform: translateY(2em);
+    transition: all 1s 0.7s;
+}
+
+#section-2 .info-container {
+    opacity: 0;
+    transform: translateY(-2em);
+    transition: all 1s 0.7s;
+}
+  
+label { /*Kassi utan um header*/
+    display: block;
+    border: solid 2px black;
+    padding: 1em 2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+#toggle2:checked ~ #section-2 {
+    opacity: 1;
+}
+  
+#toggle2:checked ~ #section-1 {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+  
+#toggle2:checked ~ #section-2 .image-container,
+#toggle2:checked ~ #section-2 .info-container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#fela {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background-color: white;
+    z-index: 1;
+}
+
+#toggle2:checked ~ #fela { /*Anton aðeins að prófa*/
+    animation: testAnimation 2s forwards;
+    display: none;
+}
+
+@keyframes testAnimation { /*Anton aðeins að prófa*/
+    from {
+        opacity: 1;
+        /*transform: scale(1);*/
+    }
+
+    to {
+        opacity: 0;
+        /*transform: scale(1);*/
+    } 
+}
+  
+#toggle3:checked ~ #section-1 {
+    transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
+}
+  
+#toggle3:checked ~ #section-2 .image-container,
+#toggle3:checked ~ #section-2 .info-container {
+    transition: transform 0.5s, opacity 0.5s;
+}
+  
+#section-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (max-width: 615px) {
+    .content-wrapper {
+        margin-left: -5%;
+    }
+}
+
+@media (max-width: 575px) {
+    .content-wrapper {
+        margin-left: -10%;
+    }
+}
+
+@media (max-width: 525px) {
+    .content-wrapper {
+        margin-left: -15%;
+    }
+}
+
+@media (min-width: 500px) {
+    #section-1 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1000px) {
+    #section-1 {
+        height: 100%;
+    }
+}
+
+/*Index - Home*/
+html{
+    scroll-behavior: smooth;
+}
+
+
+body{
+    background: white; /*Litur á bakgrunni heimasíðu*/
+    font-family: "Quicksand"; /*Leturgerð*/
+    color: #c4c2c2; /*Litur á letri*/
+    padding-top: 10px; /*Pláss fyrir ofan texta - meiri öndun*/
+    padding-bottom: 10px; /*Pláss fyrir neðan texta - meiri öndun*/
+}
+
+#camera-lens-container {
+    width: 45px;
+    margin-right: 25px;
+}
+
+.camera-lens{ /*svg file - logo_lensa*/
+    max-width: 3%;
+    opacity: 55%;
+}
+
+#header1 {
+    /*display: grid;
+    grid-template-columns: repeat(4, 1fr);*/
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+h1{
+    color:#8c8b8b; /*Litur á heiti síðu*/
+    text-align: center; /*Staðsetning heiti síðu*/
+    font-size: 45px; /*Stærð leturs*/
+    margin-right: 70px; /*Geri þetta út af svg file*/
+}
+
+nav{
+    text-align: center; /*Valmynd raðast útfrá miðju*/
+    display: flex;
+    justify-content: center;
+    flex-direction: row; /*Raðast í röð - ekki niður*/
+    
+}
+
+ul{
+    display: grid;
+    list-style-type: none; /*Fjarlægir punkta fyrir framan valmynd*/
+    grid-template-columns: repeat(1,1fr);
+    padding: 0px;
+}
+
+a{
+    text-decoration: none; /*Núna er ekki lína undir valmynd*/
+}
+
+.valmynd > input, .valmynd > nav{
+    display: none;
+}
+
+label{
+    font-size: 32px;
+    opacity: 80%;
+}
+
+input:checked ~ nav{
+    display: block;
+}
+
+
+main{
+    display: grid;
+    justify-items: center;
+}
+
+
+
+/**Index - SlideShow**/
+
+#slideshow {
+    max-width: 100%;
+    justify-items: center;
+    overflow: hidden;
+    height: 203px;
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 18px; /*Pláss fyrir ofan mynd*/
+}
+  
+.slide-wrapper {
+    width: 5000px;
+
+    -webkit-animation: slide 14s ease infinite;
+}
+
+.slide-wrapper > div > img{
+    height: 203px;
+    width: 300px;
+    margin: 0px;
+}
+  
+.grid > div > img{
+    width: 70%;
+}
+
+  
+  @-webkit-keyframes slide {
+    0% {transform: translateX(0px);}
+    50% {transform: translateX(-300px);}
+    100% {transform: translateX(-600px);}
+}
+
+/**/
+
+h6{
+    color: #c4c2c2; /*Litur á letri*/
+    text-align: center; /*Miðjusett á síðu*/
+    padding-top: 40px; /*Pláss fyrir ofan texta - andrými*/
+}
+
+/*Popup Gluggi*/
+body { 
+  width: 100%;
+  color: #424242;
+}
+
+#midja{
+    display: grid;
+    justify-content: center;
+}
+
+.button {
+  margin: 40px auto;
+  font-size: 29px;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #fff;
+  font-weight: 400; 
+  color: #8c8b8b;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  padding: 20px 70px 30px;
+  background: #eee;
+  max-width: 25%; /*Stærð takka*/
+  display: block;
+  text-align: center;
+}
+
+.exh-sub-head{
+    color: #5e5c5c;
+}
+
+.modalbg {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0);
+	z-index: 99999;
+	display: block;
+	pointer-events: none;
+  .dialog {
+    width: 400px;
+    position: relative;
+    top: -1000px;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+  }
+
+}
+
+.modalbg:target {
+	display: block;
+	pointer-events: auto;
+  background: rgba(233, 234, 238, 0.8);
+  .dialog {
+    top: -20px;
+  }
+}
+
+.close {
+	background: #666666;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+  
+}
+
+
+/*Drop Down Menu*/
+li{
+    display: block;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    background-color: white;
+}
+  
+li:hover{
+    background: #f7f7f7; /*Bakgrunnur á hover*/
+    cursor: default; /*Hvernig músin lítur út þegar hún fer yfir*/
+}
+
+ul li ul{
+    min-width: 5rem;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+}
+  
+ul li:hover > ul,
+ul li ul:hover {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+  
+ul li ul li {
+    clear: both;
+    width: 100%;
+}
+
+
+/*-Fela Radio Button-*/
+input[type="radio"]{
+    display: none;
+}
+
+/***Portfolio - Undirsíður***/
+.portf-undir-header{
+    text-align: center;
+    font-size: 45px;
+    margin-top: 30px;
+}
+
+img {
+	float: left;
+	margin: 1.66%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3,400px);  /* 3 columns */
+    grid-gap:50px 30px; /* 50 pixels of space added between rows and 30 pixels added between columns  */
+    place-items: center; /*Fer örlítið neðar - lúkkar*/
+}
+
+.grid-item {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+  
+img{
+    max-width: 100%; /*Max-width _ Þá eru myndirnar meira responsive með síðunni*/
+}
+
+
+/*Prize*/
+.subheader-prize {
+   text-align: center;
+    font-size: 45px;
+    margin-top: 30px; 
+}
+
+table{
+    width: 42%;
+    border: 1px solid;
+    padding-top: 50px;
+    border-collapse: collapse; /*Núna er ekki bil á milli strikana inní töflunni*/
+    margin-top: 40px;
+}
+
+thead{
+    padding: 15px;
+    height: 50px;
+}
+
+td{
+    border: 1px solid;
+    padding: 10px;
+}
+
+th{
+    padding: 5px;
+}
+
+
+/*About Me*/
+.section_about_me{
+    display: grid;
+    justify-content: center;
+}
+
+.profile_inner .profile_img{
+    display: grid;
+    grid-template-columns: 1fr; /*Stærð fyrir símastærð_Laga þetta í mediascreen neðst í skjali*/
+    width: 70%;
+    margin: 0 auto;
+}
+
+.subheader-about_me{
+    text-align: center;
+    font-size: 45px;
+    margin-top: 40px;
+}
+
+.profile_img {
+    grid-column: 1;
+    width: 70%;
+}
+
+.profile_text{
+    display: grid;
+    align-content: center;
+    margin-top: 40px;
+}
+
+/*Contact*/
+header{
+    position: relative;
+    margin: 100px 0 25px 0;
+    font-size: 2.3em;
+    text-align: center;
+    letter-spacing: 7px;
+}
+
+.topBefore {
+    margin-top: 0px !important;
+}
+
+.subheader-contact{
+    text-align: center;
+    font-size: 45px;
+    margin-top: 30px;
+}
+  
+#form{
+    position: relative;
+    width: 500px;
+    margin: 50px auto 100px auto;
+}
+  
+input{
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    
+    background: transparent;
+    outline: none;
+    
+    border: solid 1px #c4c2c2;
+    border-bottom: none;
+    
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+}
+  
+input:hover{
+    background: #edebeb;
+    color: #424242;
+}
+  
+textarea{
+    width: 470px;
+    max-width: 470px;
+    height: 110px;
+    max-height: 110px;
+    padding: 15px;
+    
+    background: transparent;
+    outline: none;
+    
+    color: #424242;
+    font-size: 0.875em;
+    
+    border: solid 1px #c4c2c2;
+    
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+}
+  
+textarea:hover{
+    background: #edebeb;
+}
+  
+#submit{
+    width: 502px;
+    
+    padding: 0;
+    margin: -5px 0px 0px 0px;
+
+    font-size: 0.875em;
+    color: #757474;
+    
+    outline:none;
+    cursor: pointer;
+    
+    border: solid 1px #c4c2c2;
+    border-top: none;
+}
+
+/*Log In*/  
+body{
+    background: white; /* fallback for old browsers */
+    overflow-x: hidden;
+  
+    height: 100%;
+  
+    /* code to make all text unselectable */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+  
+  /* Disables selector ring */
+  body:not(.user-is-tabbing) button:focus,
+  body:not(.user-is-tabbing) input:focus,
+  body:not(.user-is-tabbing) select:focus,
+  body:not(.user-is-tabbing) textarea:focus {
+    outline: none;
+  }
+  
+h2{
+    color: #c4c2c2;
+  
+    font-size: 35px;
+    font-weight: 800;
+}
+  
+.flex-container {
+    width: 100vw;
+  
+    margin-top: 60px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.content-container {
+    width: 500px;
+    height: 350px;
+}
+  
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: 500px;
+    height: 350px;
+  
+    margin-top: 5px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  
+    border-radius: 12px;
+  
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  
+    background: #fbfafa;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
+}
+  
+.subtitle {
+    font-size: 11px;
+  
+    color: #424242;
+}
+  
+.input-login{
+    border: none;
+    border-bottom: solid rgb(143, 143, 143) 1px;
+  
+    margin-bottom: 30px;
+  
+    background: none;
+    color: #424242;
+  
+    height: 35px;
+    width: 300px;
+}
+  
+.submit-btn {
+    cursor: pointer;
+  
+    border: none;
+    border-radius: 8px;
+  
+    background: #e7e6e6;
+   
+    width: 95px;
+  
+    transition: all 1s;
+}
+  
+.submit-btn:hover {
+    color: #757474;
+  
+    box-shadow: none;
+}
+
+/*Þegar skjár er minni (500px)*/
+@media screen and (max-width:500px) {
+
+    table{
+        border: 0px;
+        width: 100%;
+    }
+    
+    
+    thead{
+        display: none;
+    }
+
+    td{
+        display: block;
+        text-align: right;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    td::before{
+        content: attr(fyrirsogn);
+        font-weight: bold;
+        display: block;
+        text-align: left;
+    }
+    
+    table tr{
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .grid{ /*Mynda Undirsíður*/
+        display: grid;
+        grid-template-columns: repeat(1,400px);
+        grid-gap: 50px 50px;
+    }
+
+    .exh-sub-head{
+        max-width: 100vW;
+    }
+
+}
+
+/*Þegar skjár er 500px eða stærri*/
+@media screen and (min-width: 500px){
+
+    .valmynd > label {
+        display: none;
+    }
+
+    .valmynd > nav{
+        display: block;
+    }
+
+    .smu > ul{
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+    }
+
+
+    ul li:hover > ul,
+    ul li ul:hover {
+      position: absolute;
+      visibility: visible;
+      opacity: 1;
+      display: block;
+      z-index: 1; /*Núna kemur undirvalmynd fyrir framan slideshow*/
+  }
+
+  .profile_inner{ /*About Me - Mynd*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.profile_text{ /*About Me - Texti*/
+    display: grid;
+    align-content: center;
+}
+
+#slideshow {
+    max-width: 100%;
+
+    justify-items: center;
+    overflow: hidden;
+    height: 480px;  
+    width: 710px;
+    margin: 0 auto;
+    padding-top: 18px; /*Pláss fyrir ofan mynd*/
+}
+  
+.slide-wrapper {
+    width: 5000px;
+
+    -webkit-animation: slide 14s ease infinite;
+}
+
+.slide-wrapper > div > img{
+    height: 480px;
+    width: 710px;
+    margin: 0px;
+}
+
+@-webkit-keyframes slide {
+    0% {transform: translateX(0px);}
+    50% {transform: translateX(-710px);}
+    100% {transform: translateX(-1420px);}
+
+}
+}

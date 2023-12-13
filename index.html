@@ -1,0 +1,117 @@
+<!DOCType html> <!--Öll html byrja með þessu - Mjög mikilvægt!-->
+<html lang="is"> <!--Hér byrjar í raun html-ið - Er að setja tungumál skjalsins á íslensku-->
+
+    <head> <!--Hausinn á síðunni byrjar (geymir fullt af upplýsingum sem notandi sér ekki)-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Auðbjörg Helga</title> <!--Heiti síðu-->
+        <link rel="stylesheet" href="ljosmyndasida.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    </head> <!--Hausinn á síðunni endar - Muna eftir / (Þá er það lokað)-->
+
+    <body> <!--Body byrjar (Þetta er það sem notandi sér)-->
+
+        
+        <div class="page-wrapper" id="page-wrapper">
+            <div class="content-wrapper">
+                <input type="radio" name="toggle" id="toggle1">
+                <input type="radio" name="toggle" id="toggle2">
+                <input type="radio" name="toggle" id="toggle3">
+                <div id="fela">
+
+                </div>
+                <section id="section-1">
+                <div class="image-container">
+                    <img src="Myndir/Vef2.jpg" alt="">
+                </div>
+                <div class="info-container">
+                    <h1>Hello!</h1>
+                    <label for="toggle2">Welcome to my website...</label>
+                </div>
+                </section>
+
+            </div>
+        </div>
+
+
+        <h1 id="header1">
+            <div>&nbsp;</div>
+            <div id="camera-lens-container">
+                <img class="camera-lens" src="camera-lens.svg" alt="svg image">
+            </div>
+            <div>Auðbjörg Helga</div>
+            <div>&nbsp;</div>
+        </h1> <!--Þetta er heiti síðu - Fyrirsögn-->
+
+        <section class="valmynd">
+        <input class="fela" id="click" type="checkbox"> <!--Hægt að ýta á hamborgara (algjör byrjun)-->
+        <label for="click">&#9776;</label> <!--Hamborgari (valmynd)-->
+            <nav class="smu"> <!--Navigation - Þetta er til þess að búa til menu bar-->
+
+                <!--Valmynd efst á vefsíðu-->
+                <ul> <!--Unordered list - Óskipulagður listi - Þarf að hafa þetta utan um li-->
+                    <li><i class="icon-home3"></i>&nbsp;<a href="index.html">Home</a></li> <!--List Item - Eitthvað sem er inní Óskipulögðum Lista-->
+                        <nav role="navigation"> <!--Undirsíður_Passa að hafa inní portfolio-inu-->
+                            <ul>
+                                <li><a class="portfolio-valmynd" href="#">Portfolio</a> <!--Allt inní Portfolio-->
+                                    <ul class="dropdown">
+                                        <li><a href="self_portraits.html">Self Portraits</a></li> <!--Undirsíða-->
+                                        <li><a href="events.html">Events</a></li>
+                                        <li><a href="portraits.html">Portraits</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </li> <!--Allt inní Portfolio-->
+                    <li><a href="prize.html">Prize</a></li>
+                    <li><a href="about_me.html">About Me</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="log_in.html">Log In</a></li>
+                </ul> <!--Unordered list - Óskipulagður listi - Þarf að hafa þetta utan um li-->
+
+            </nav> <!--Loka navigation - Muna eftir / (Til þess að loka)-->
+        </section>
+
+        <main id="slideshow"> <!--Slideshow-->
+            <section class="slide-wrapper">
+                <div class="slide"><img src="Myndir/Y3A8489Editb.jpg"></div>
+                <div class="slide"><img src="Myndir/Y3A9282b.jpg"></div>
+                <div class="slide"><img src="Myndir/Y3A1365Edit.jpg"></div>
+            </section>
+        </main>
+
+        <section class="midja">
+        <!--Takki til þess að opna popup gæjann-->
+        <a class="button" href="#openModal">Exhibits</a> <!--Takkinn Sjálfur-->
+        </section>
+
+        <div id="openModal" class="modalbg">
+        <div class="dialog">
+            <a href="#close" title="Close" class="close">X</a> <!--Til þess að loka glugga-->
+  	        <h2 class="exh-sub-head">Exhibits</h2> <!--Fyrirsögn í glugga-->
+		        <p>You can check out some of Auðbjörgs photos here:</p> <!--Texti í glugga-->
+		        <p>Te & Kaffi - Borgartún 21a, 105 Reykjavík, Iceland</p>
+	        </div>
+        </div>
+
+        <h6>©Auðbjörg Helga</h6> <!--Copyright neðst á síðu-->
+        
+        <script type="text/javascript">/*Sett Javascript til þess að valmynd og allir takkar virki enn*/
+
+            const checkbox = document.getElementById('toggle2')
+
+            checkbox.addEventListener('change', (event) => {
+                if (event.currentTarget.checked) {
+                    setTimeout(function(){
+                        document.getElementById("page-wrapper").style.display = "none";
+                    }, 2000)
+                }
+            })
+
+        </script>
+            
+    </body> <!--Body endar - Muna eftir / (Þá er það lokað)-->
+
+</html> <!--Hér endar html-ið - Muna eftir / (Þá er það lokað)-->

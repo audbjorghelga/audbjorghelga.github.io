@@ -1,0 +1,75 @@
+<!DOCType html> <!--Öll html byrja með þessu - Mjög mikilvægt!-->
+<html lang="is"> <!--Hér byrjar í raun html-ið - Er að setja tungumál skjalsins á íslensku-->
+
+    <head> <!--Hausinn á síðunni byrjar (geymir fullt af upplýsingum sem notandi sér ekki)-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Auðbjörg Helga</title> <!--Heiti síðu-->
+        <link rel="stylesheet" href="ljosmyndasida.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    </head> <!--Hausinn á síðunni endar - Muna eftir / (Þá er það lokað)-->
+
+    <body> <!--Body byrjar (Þetta er það sem notandi sér)-->
+
+        <h1 id="header1">
+            <div id="camera-lens-container">
+                <img class="camera-lens" src="camera-lens.svg" alt="svg image">
+            </div>
+            <div>Auðbjörg Helga</div>
+        </h1> <!--Þetta er heiti síðu - Fyrirsögn-->
+
+        <section class="valmynd">
+        <input class="fela" id="click" type="checkbox"> <!--Hægt að ýta á hamborgara (algjör byrjun)-->
+        <label for="click">&#9776;</label> <!--Hamborgari (valmynd)-->
+            <nav class="smu"> <!--Navigation - Þetta er til þess að búa til menu bar-->
+
+                <!--Valmynd efst á vefsíðu-->
+                <ul> <!--Unordered list - Óskipulagður listi - Þarf að hafa þetta utan um li-->
+                    <li><i class="icon-home3"></i>&nbsp;<a href="index.html">Home</a></li> <!--List Item - Eitthvað sem er inní Óskipulögðum Lista-->
+                        <nav role="navigation"> <!--Undirsíður_Passa að hafa inní portfolio-inu-->
+                            <ul>
+                                <li><a class="portfolio-valmynd" href="#">Portfolio</a> <!--Allt inní Portfolio-->
+                                    <ul class="dropdown">
+                                        <li><a href="self_portraits.html">Self Portraits</a></li> <!--Undirsíða-->
+                                        <li><a href="events.html">Events</a></li>
+                                        <li><a href="portraits.html">Portraits</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </li> <!--Allt inní Portfolio-->
+                    <li><a href="prize.html">Prize</a></li>
+                    <li><a href="about_me.html">About Me</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="log_in.html">Log In</a></li>
+                </ul> <!--Unordered list - Óskipulagður listi - Þarf að hafa þetta utan um li-->
+
+            </nav> <!--Loka navigation - Muna eftir / (Til þess að loka)-->
+        </section>
+
+        <main>
+            
+            <form id="form" class="topBefore">
+		        <h2 class="subheader-contact">Contact</h2>
+                <input id="name" type="text" placeholder="Name" required>
+                <input id="email" type="text" placeholder="E-mail" required>
+                <input type="text" placeholder="Subject">
+                <textarea id="message" type="text" placeholder="Message"></textarea>
+                <input id="submit" type="submit" value="Submit">
+        
+            </form>
+
+            <sub>
+                <a href="https://www.instagram.com/audbjorghelga/" class="icon-instagram"></a>
+            </sub>
+
+        </main>
+
+        <h6>©Auðbjörg Helga</h6>
+        
+            
+    </body>
+
+</html>
